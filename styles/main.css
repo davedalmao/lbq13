@@ -40,14 +40,14 @@ main #face img {
 }
 
 main #bottom-object {
-  width: 80px;
+  width: 60px;
   position: relative;
 }
 
 main #bottom-object #important-number-container {
   position: absolute;
   font-family: "ReenieBeanie", sans-serif;
-  font-size: 5rem;
+  font-size: 3.8rem;
   height: 100%;
   width: 100%;
   text-align: center;
