@@ -1,3 +1,14 @@
 body {
   background: linear-gradient(#823a3d, #6a272a);
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+main > * {
+  border: 1px solid red;
+}
