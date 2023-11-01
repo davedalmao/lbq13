@@ -1,4 +1,5 @@
 let currentFaceId = 0;
+let currentImportantNumber = 0;
 
 const faces = new Map([
   [0, "BaseBaby.svg"],
@@ -14,8 +15,14 @@ const faces = new Map([
   [10, "Rohan.svg"],
 ]);
 
-const getRandomFaceIdFromMap = () => {
-  return Math.floor(Math.random() * (faces.size - 0));
+/**
+ * Gets a random number from 0 to maxValue.
+ *
+ * @param {int} maxValue
+ * @returns
+ */
+const getRandomNumber = (maxValue) => {
+  return Math.floor(Math.random() * (maxValue - 0));
 };
 
 /**
@@ -25,11 +32,11 @@ const getRandomFaceIdFromMap = () => {
 const setNewBabyFace = () => {
   const babyFace = document.querySelector("#face img");
   const baseFolder = "img/faces/";
-  let randomFaceId = getRandomFaceIdFromMap();
+  let randomFaceId = getRandomNumber(faces.size);
 
   // to avoid displaying the same image source more than once
   while (currentFaceId == randomFaceId) {
-    randomFaceId = getRandomFaceIdFromMap();
+    randomFaceId = getRandomNumber(faces.size);
   }
 
   const newBabyFace = faces.get(randomFaceId);
@@ -37,11 +44,34 @@ const setNewBabyFace = () => {
   babyFace.src = baseFolder + newBabyFace; // set new image here
 };
 
+/**
+ * Sets the "Important Number" at the bottom of the screen (inside the #bottom-object container).
+ */
+const setNewImportantNumber = () => {
+  const importantNumberContainer = document.querySelector("#important-number");
+  const importantNumbers = [2, 11, 13, 23];
+  let importantNumber =
+    importantNumbers[getRandomNumber(importantNumbers.length)];
+
+  // to avoid displaying the same important number more than once
+  while (currentImportantNumber == importantNumber) {
+    importantNumber =
+      importantNumbers[getRandomNumber(importantNumbers.length)];
+  }
+
+  currentImportantNumber = importantNumber;
+  importantNumberContainer.innerHTML = importantNumber;
+};
+
 const bottomObject = document.querySelector("#bottom-object");
-bottomObject.addEventListener("click", setNewBabyFace);
+const bottomObjectEventHandler = () => {
+  setNewBabyFace();
+  setNewImportantNumber();
+};
+bottomObject.addEventListener("click", bottomObjectEventHandler);
 
 document.body.onkeydown = function (e) {
   if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
-    setNewBabyFace();
+    bottomObjectEventHandler();
   }
 };
