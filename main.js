@@ -64,14 +64,17 @@ const setNewImportantNumber = () => {
 };
 
 const bottomObject = document.querySelector("#bottom-object");
-const bottomObjectEventHandler = () => {
+const face = document.querySelector("#face");
+const uiUpdateEventHandler = () => {
   setNewBabyFace();
   setNewImportantNumber();
 };
-bottomObject.addEventListener("click", bottomObjectEventHandler);
+
+bottomObject.addEventListener("click", uiUpdateEventHandler);
+face.addEventListener("click", uiUpdateEventHandler);
 
 document.body.onkeydown = function (e) {
   if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
-    bottomObjectEventHandler();
+    uiUpdateEventHandler();
   }
 };
