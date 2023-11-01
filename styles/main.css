@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "ReenieBeanie";
+  src: url("../fonts/ReenieBeanie-Regular.ttf");
+}
 body {
   background: linear-gradient(#823a3d, #6a272a);
 }
@@ -6,9 +10,29 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
   gap: 10px;
 }
 
 main > * {
   border: 1px solid red;
+}
+
+main .quote {
+  width: fit-content;
+  height: fit-content;
+  font-size: 2rem;
+  font-family: "ReenieBeanie", sans-serif;
+  color: #e9cd7d;
+}
+
+main .face {
+  width: 100%;
+  padding: 2em;
+}
+
+main .bottom-object {
+  width: 80px;
+  min-height: 10vh;
 }
