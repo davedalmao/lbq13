@@ -12,27 +12,34 @@ main {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  gap: 10px;
-}
-
-main > * {
-  border: 1px solid red;
+  gap: 0.5rem;
+  padding: 2em;
 }
 
 main .quote {
   width: fit-content;
   height: fit-content;
-  font-size: 2rem;
+  font-size: 3rem;
+  text-align: center;
   font-family: "ReenieBeanie", sans-serif;
   color: #e9cd7d;
+  line-height: normal;
 }
 
 main .face {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  padding: 2em;
+  flex-grow: 1;
+}
+
+main .face img {
+  width: 100%;
+  height: 100%;
+  max-width: 350px;
 }
 
 main .bottom-object {
   width: 80px;
-  min-height: 10vh;
 }
