@@ -27,10 +27,6 @@ main #quote {
 }
 
 main #face {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
   flex-grow: 1;
 }
 
