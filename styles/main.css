@@ -28,6 +28,7 @@ main #quote {
 
 main #face {
   flex-grow: 1;
+  cursor: pointer;
 }
 
 main #face img {
@@ -38,6 +39,7 @@ main #face img {
 main #bottom-object {
   width: 60px;
   position: relative;
+  cursor: pointer;
 }
 
 main #bottom-object #important-number-container {
