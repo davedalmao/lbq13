@@ -34,10 +34,6 @@ main #face {
   transition: transform 0.2s;
 }
 
-main #face:hover {
-  transform: scale(1.03);
-}
-
 main #face img {
   width: 100%;
   height: 100%;
@@ -48,10 +44,6 @@ main #bottom-object {
   position: relative;
   cursor: pointer;
   transition: transform 0.2s;
-}
-
-main #bottom-object:hover {
-  transform: scale(1.3);
 }
 
 main #bottom-object #important-number-container {

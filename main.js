@@ -40,8 +40,8 @@ const setNewBabyFace = () => {
   }
 
   const newBabyFace = faces.get(randomFaceId);
-  currentFaceId = randomFaceId;
   babyFace.src = baseFolder + newBabyFace; // set new image here
+  currentFaceId = randomFaceId; // store the currentFaceId
 };
 
 /**
@@ -63,15 +63,41 @@ const setNewImportantNumber = () => {
   importantNumberContainer.innerHTML = importantNumber;
 };
 
-const bottomObject = document.querySelector("#bottom-object");
-const face = document.querySelector("#face");
+const scaleElementUp = (element, scaleValue) => {
+  element.style.transform = `scale(${scaleValue})`;
+};
+
+const returnElementToNormalSize = (element) => {
+  element.style.transform = "scale(1)";
+};
+
 const uiUpdateEventHandler = () => {
   setNewBabyFace();
   setNewImportantNumber();
 };
 
-bottomObject.addEventListener("click", uiUpdateEventHandler);
+const face = document.querySelector("#face");
 face.addEventListener("click", uiUpdateEventHandler);
+face.addEventListener("click", uiUpdateEventHandler);
+face.addEventListener("mousedown", () => returnElementToNormalSize(face, 1.03));
+face.addEventListener("mouseout", () => returnElementToNormalSize(face, 1.03));
+face.addEventListener("mouseover", () => scaleElementUp(face, 1.03));
+face.addEventListener("mouseup", () => scaleElementUp(face, 1.03));
+
+const bottomObject = document.querySelector("#bottom-object");
+bottomObject.addEventListener("click", uiUpdateEventHandler);
+bottomObject.addEventListener("mousedown", () =>
+  returnElementToNormalSize(bottomObject, 1.3)
+);
+bottomObject.addEventListener("mouseout", () =>
+  returnElementToNormalSize(bottomObject, 1.3)
+);
+bottomObject.addEventListener("mouseover", () =>
+  scaleElementUp(bottomObject, 1.3)
+);
+bottomObject.addEventListener("mouseup", () =>
+  scaleElementUp(bottomObject, 1.3)
+);
 
 document.body.onkeydown = function (e) {
   if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
